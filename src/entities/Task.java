@@ -1,8 +1,5 @@
 package entities;
 
-/**
- * Created by andreacifola on 18/09/2018.
- */
 public class Task {
 
     private int ID;

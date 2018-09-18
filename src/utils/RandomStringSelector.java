@@ -6,9 +6,7 @@ import java.nio.file.Files;
 import java.util.List;
 import java.util.Random;
 
-/**
- * Created by andreacifola on 18/09/2018.
- */
+
 public class RandomStringSelector {
 
     public String selectRandomString(){

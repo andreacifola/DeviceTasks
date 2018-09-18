@@ -5,9 +5,6 @@ import entities.Task;
 import entities.Type;
 import utils.RandomStringSelector;
 
-/**
- * Created by andreacifola on 18/09/2018.
- */
 public class LightTaskGenerator {
 
     public LightTask spawnLightTask(int id) {
