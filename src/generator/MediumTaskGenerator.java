@@ -5,9 +5,6 @@ import entities.Task;
 import entities.Type;
 import utils.RandomNumberGenerator;
 
-/**
- * Created by andreacifola on 18/09/2018.
- */
 public class MediumTaskGenerator {
 
     public Task spawnMediumTask(int id) {

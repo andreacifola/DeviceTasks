@@ -1,12 +1,9 @@
 import entities.Task;
 import generator.TaskGenerator;
 import utils.RandomNumberGenerator;
-
 import java.util.ArrayList;
 
-/**
- * Created by andreacifola on 18/09/2018.
- */
+
 public class SpawnTask {
 
     private static int MIN_RAND = 0;

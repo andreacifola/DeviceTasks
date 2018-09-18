@@ -2,9 +2,6 @@ package generator;
 
 import entities.Task;
 
-/**
- * Created by andreacifola on 18/09/2018.
- */
 public class TaskGenerator {
 
     public Task generateTask(int i, int id){
