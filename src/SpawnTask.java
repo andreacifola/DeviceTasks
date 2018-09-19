@@ -1,4 +1,6 @@
+import entities.HeavyTask;
 import entities.LightTask;
+import entities.MediumTask;
 import entities.Task;
 import generator.TaskGenerator;
 import rest.RequestHandler;
@@ -13,9 +15,12 @@ public class SpawnTask {
     private static int MIN_RAND = 0;
     private static int MAX_RAND = 2;
 
-    public static void main(String[] args) throws InterruptedException,Exception {
+    public static void main(String[] args) throws Exception {
 
         int id=0;
+        String payload;
+        String requestUrl;
+        String res;
         ArrayList<Task> taskList = new ArrayList<>();
         TaskGenerator taskGenerator = new TaskGenerator();
         JsonBuilder jsonBuilder = new JsonBuilder();
@@ -23,23 +28,39 @@ public class SpawnTask {
         RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
         System.out.println("Spawning Tasks...");
 
-        /*
         while (true){
             int randNum = randomNumberGenerator.generateRandom(MIN_RAND,MAX_RAND);
             Task newTask = taskGenerator.generateTask(randNum,id);
+            switch (randNum){
+                case 0:
+                    LightTask lightTask = (LightTask) newTask;
+                    payload = jsonBuilder.LightTaskToJSON(lightTask);
+                    requestUrl="http://localhost:8080/light";
+                    res = requestHandler.sendPostRequest(requestUrl, payload);
+                    System.out.println(res);
+                    break;
+
+                case 1:
+                    MediumTask mediumTask = (MediumTask) newTask;
+                    payload = jsonBuilder.MediumTaskToJSON(mediumTask);
+                    requestUrl="http://localhost:8080/medium";
+                    res = requestHandler.sendPostRequest(requestUrl, payload);
+                    System.out.println(res);
+                    break;
+
+                case 2:
+                    HeavyTask heavyTask = (HeavyTask) newTask;
+                    payload = jsonBuilder.HeavyTaskToJSON(heavyTask);
+                    requestUrl="http://localhost:8080/heavy";
+                    res = requestHandler.sendPostRequest(requestUrl, payload);
+                    System.out.println(res);
+                    break;
+            }
+
             taskList.add(newTask);
             ++id;
-            System.out.println("Task n° "+newTask.getID() + ", type = "+ newTask.getType());
             Thread.sleep(randomNumberGenerator.generateRandom(1000,5000));
-        }*/
-
-        LightTask newTask = (LightTask) taskGenerator.generateTask(0,id);
-
-        String payload = jsonBuilder.LightTaskToJSON(newTask);
-        String requestUrl="http://localhost:8080/light";
-        String res = requestHandler.sendPostRequest(requestUrl, payload);
-
-        System.out.println(res);
+        }
 
     }
 
