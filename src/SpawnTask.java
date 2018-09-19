@@ -5,11 +5,6 @@ import rest.RequestHandler;
 import utils.JsonBuilder;
 import utils.RandomNumberGenerator;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 
 
@@ -43,8 +38,8 @@ public class SpawnTask {
         String payload = jsonBuilder.LightTaskToJSON(newTask);
         String requestUrl="http://localhost:8080/light";
         String res = requestHandler.sendPostRequest(requestUrl, payload);
-        System.out.println(res);
 
+        System.out.println(res);
 
     }
 
