@@ -12,11 +12,12 @@ public class RandomStringSelector {
     public String selectRandomString(){
         List<String> lines = null;
         try {
-            lines = Files.readAllLines(new File("src\\words.txt").getAbsoluteFile().toPath());
+            lines = Files.readAllLines(new File("src/words.txt").getAbsoluteFile().toPath());
         } catch (IOException e) {
             e.printStackTrace();
         }
         Random rand = new Random();
+        assert lines != null;
         return lines.get(rand.nextInt(lines.size()));
     }
 }

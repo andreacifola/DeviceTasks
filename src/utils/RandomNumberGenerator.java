@@ -2,9 +2,7 @@ package utils;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-/**
- * Created by andreacifola on 18/09/2018.
- */
+
 public class RandomNumberGenerator {
 
     public int Generate5Digits() {
