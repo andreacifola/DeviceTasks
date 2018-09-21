@@ -12,7 +12,7 @@ public class RandomStringSelector {
     public String selectRandomString(){
         List<String> lines = null;
         try {
-            lines = Files.readAllLines(new File("src/words.txt").getAbsoluteFile().toPath());
+            lines = Files.readAllLines(new File("src/main/java/DeviceTasks/words.txt").getAbsoluteFile().toPath());
         } catch (IOException e) {
             e.printStackTrace();
         }
