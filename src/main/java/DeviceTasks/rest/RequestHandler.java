@@ -1,8 +1,6 @@
 package DeviceTasks.rest;
 
-import DeviceTasks.entities.HeavyTask;
-import DeviceTasks.entities.LightTask;
-import DeviceTasks.entities.MediumTask;
+import DeviceTasks.entities.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.BufferedReader;
@@ -15,6 +13,12 @@ import java.net.URL;
 public class RequestHandler {
 
     ObjectMapper mapper = new ObjectMapper();
+
+    public int registerTask(String requestUrl,Task task, String payload){
+        StringBuffer jsonString = new StringBuffer();
+        sendPost(requestUrl,payload,jsonString);
+        return Integer.parseInt(jsonString.toString());
+    }
 
     public LightTask sendLightPostRequest(String requestUrl, String payload) throws IOException {
         StringBuffer jsonString = new StringBuffer();
@@ -78,4 +82,21 @@ public class RequestHandler {
         rd.close();
         return result.toString();
     }
+
+    public Task mapJSONToTask(String jsonstring,Type type) throws IOException {
+        switch (type){
+            case LIGHT:
+                return mapper.readValue(jsonstring,LightTask.class);
+            case MEDIUM:
+                return mapper.readValue(jsonstring,MediumTask.class);
+            case HEAVY:
+                return mapper.readValue(jsonstring,HeavyTask.class);
+        }
+        return null;
+    }
+
+    public String SendInterruptRequest(int id){
+        return "ciao";
+    }
+
 }
