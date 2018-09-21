@@ -40,7 +40,7 @@ public class SpawnTask {
                     payload = jsonBuilder.LightTaskToJSON(lightTask);
                     requestUrl="http://localhost:8080/light";
                     LightTask respl = requestHandler.sendLightPostRequest(requestUrl, payload);
-                    System.out.println("Risposta dal server : id "+respl.getID() + " tipo : "+respl.getType());
+                    System.out.println("Risposta dal server : id "+respl.getID() + " tipo : "+respl.getType() + "encrypted : "+respl.getEncrypted() );
                     break;
 
                 case 1:
@@ -48,7 +48,7 @@ public class SpawnTask {
                     payload = jsonBuilder.MediumTaskToJSON(mediumTask);
                     requestUrl="http://localhost:8080/medium";
                     MediumTask respm = requestHandler.sendMediumPostRequest(requestUrl, payload);
-                    System.out.println("Risposta dal server : id "+respm.getID() + " tipo : "+respm.getType());
+                    System.out.println("Risposta dal server : id "+respm.getID() + " tipo : "+respm.getType()+" time : "+respm.getTime());
                     break;
 
                 case 2:
@@ -56,7 +56,7 @@ public class SpawnTask {
                     payload = jsonBuilder.HeavyTaskToJSON(heavyTask);
                     requestUrl="http://localhost:8080/heavy";
                     HeavyTask resph = requestHandler.sendHeavyPostRequest(requestUrl, payload);
-                    System.out.println("Risposta dal server : id "+resph.getID() + " tipo : "+resph.getType());
+                    System.out.println("Risposta dal server : id "+resph.getID() + " tipo : "+resph.getType()+" resp : "+resph.getResponse());
                     break;
             }
 
