@@ -1,10 +1,7 @@
 package DeviceTasks;
 
 
-import DeviceTasks.entities.HeavyTask;
-import DeviceTasks.entities.LightTask;
-import DeviceTasks.entities.MediumTask;
-import DeviceTasks.entities.Task;
+import DeviceTasks.entities.*;
 import DeviceTasks.generator.TaskGenerator;
 import DeviceTasks.rest.RequestHandler;
 import DeviceTasks.utils.JsonBuilder;
@@ -38,25 +35,37 @@ public class SpawnTask {
                 case 0:
                     LightTask lightTask = (LightTask) newTask;
                     payload = jsonBuilder.LightTaskToJSON(lightTask);
-                    requestUrl="http://localhost:8080/light";
-                    LightTask respl = requestHandler.sendLightPostRequest(requestUrl, payload);
-                    System.out.println("Risposta dal server : id "+respl.getID() + " tipo : "+respl.getType() + "encrypted : "+respl.getEncrypted() );
+                    requestUrl="http://localhost:8080/light/register";
+                    int i = requestHandler.registerTask(requestUrl,lightTask,payload);
+                    System.out.println("Valore di ritorno : "+i);
+                    requestUrl="http://localhost:8080/light/"+i;
+                    res = requestHandler.sendGetRequest(requestUrl);
+                    LightTask result = (LightTask) requestHandler.mapJSONToTask(res,Type.LIGHT);
+                    System.out.println("Risposta dal server : "+result.getID()+" encrypted : "+result.getEncrypted());
                     break;
 
                 case 1:
                     MediumTask mediumTask = (MediumTask) newTask;
                     payload = jsonBuilder.MediumTaskToJSON(mediumTask);
-                    requestUrl="http://localhost:8080/medium";
-                    MediumTask respm = requestHandler.sendMediumPostRequest(requestUrl, payload);
-                    System.out.println("Risposta dal server : id "+respm.getID() + " tipo : "+respm.getType()+" time : "+respm.getTime());
+                    requestUrl="http://localhost:8080/medium/register";
+                    int j = requestHandler.registerTask(requestUrl,mediumTask,payload);
+                    System.out.println("Valore di ritorno : "+j);
+                    requestUrl="http://localhost:8080/medium/"+j;
+                    res = requestHandler.sendGetRequest(requestUrl);
+                    MediumTask result1 = (MediumTask) requestHandler.mapJSONToTask(res,Type.MEDIUM);
+                    System.out.println("Risposta dal server : "+result1.getID()+" time : "+result1.getTime());
                     break;
 
                 case 2:
                     HeavyTask heavyTask = (HeavyTask) newTask;
                     payload = jsonBuilder.HeavyTaskToJSON(heavyTask);
-                    requestUrl="http://localhost:8080/heavy";
-                    HeavyTask resph = requestHandler.sendHeavyPostRequest(requestUrl, payload);
-                    System.out.println("Risposta dal server : id "+resph.getID() + " tipo : "+resph.getType()+" resp : "+resph.getResponse());
+                    requestUrl="http://localhost:8080/heavy/register";
+                    int k = requestHandler.registerTask(requestUrl,heavyTask,payload);
+                    System.out.println("Valore di ritorno : "+k);
+                    requestUrl="http://localhost:8080/heavy/"+k;
+                    res = requestHandler.sendGetRequest(requestUrl);
+                    HeavyTask result2 = (HeavyTask) requestHandler.mapJSONToTask(res,Type.HEAVY);
+                    System.out.println("Risposta dal server : "+result2.getID()+" response : "+result2.getResponse());
                     break;
             }
 
