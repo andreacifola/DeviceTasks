@@ -23,4 +23,8 @@ public class RandomNumberGenerator {
     public int generateRandom(int start,int end){
         return ThreadLocalRandom.current().nextInt(start, end + 1);
     }
+
+    public Double generateRandom(Double start, Double end){
+        return ThreadLocalRandom.current().nextDouble(start, end + 1);
+    }
 }

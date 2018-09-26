@@ -9,21 +9,24 @@ public class JsonBuilder {
 
     public String LightTaskToJSON(LightTask task){
         String payload="{ \"id\" : \"" + task.getID() + "\" , \"type\" : \"" + task.getType() +
-                "\", \"consumption\" : " + task.getConsumption() + ", \"toEncrypt\": \""+task.getToEncrypt()+"\"}";
+                "\", \"consumption\" : " + task.getConsumption() + ", \"toEncrypt\": \"" + task.getToEncrypt() +
+                "\", \"latitude\" : \"" + task.getLatitude() + "\", \"longitude\" : \"" + task.getLongitude() + "\"}";
         System.out.println(payload);
         return payload;
     }
 
     public String MediumTaskToJSON(MediumTask task){
         String payload="{ \"id\" : \"" + task.getID() + "\" , \"type\" : \"" + task.getType() +
-                "\", \"consumption\" : " + task.getConsumption() + ", \"number\": \""+task.getNumber()+"\"}";
+                "\", \"consumption\" : " + task.getConsumption() + ", \"number\": \"" + task.getNumber() +
+                "\", \"latitude\" : \"" + task.getLatitude() + "\", \"longitude\" : \"" + task.getLongitude() + "\"}";
         System.out.println(payload);
         return payload;
     }
 
     public String HeavyTaskToJSON(HeavyTask task){
         String payload="{ \"id\" : \"" + task.getID() + "\" , \"type\" : \"" + task.getType() +
-                "\", \"consumption\" : " + task.getConsumption() + ", \"response\" : \"\"}";
+                "\", \"consumption\" : " + task.getConsumption() + ", \"response\" : \"\"" +
+                ", \"latitude\" : \"" + task.getLatitude() + "\", \"longitude\" : \"" + task.getLongitude() + "\"}";
         System.out.println(payload);
         return payload;
     }

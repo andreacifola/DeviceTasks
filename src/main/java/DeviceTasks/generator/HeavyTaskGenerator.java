@@ -14,6 +14,8 @@ public class HeavyTaskGenerator {
         task.setID(id);
         task.setType(Type.HEAVY);
         task.setConsumption(new RandomNumberGenerator().generateRandom(21, 30));
+        task.setLatitude(new RandomNumberGenerator().generateRandom(41.5, 42.5));
+        task.setLongitude(new RandomNumberGenerator().generateRandom(12.6, 13.6));
         return task;
     }
 }

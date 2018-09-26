@@ -16,6 +16,8 @@ public class LightTaskGenerator {
         task.setID(id);
         task.setType(Type.LIGHT);
         task.setConsumption(new RandomNumberGenerator().generateRandom(1, 7));
+        task.setLatitude(new RandomNumberGenerator().generateRandom(41.5, 42.5));
+        task.setLongitude(new RandomNumberGenerator().generateRandom(12.6, 13.6));
         return task;
     }
 }
