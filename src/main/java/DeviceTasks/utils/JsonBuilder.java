@@ -8,19 +8,22 @@ import DeviceTasks.entities.MediumTask;
 public class JsonBuilder {
 
     public String LightTaskToJSON(LightTask task){
-        String payload="{ \"id\" : \""+task.getID()+"\" , \"type\" : \""+task.getType()+"\", \"toEncrypt\": \""+task.getToEncrypt()+"\"}";
+        String payload="{ \"id\" : \"" + task.getID() + "\" , \"type\" : \"" + task.getType() +
+                "\", \"consumption\" : " + task.getConsumption() + ", \"toEncrypt\": \""+task.getToEncrypt()+"\"}";
         System.out.println(payload);
         return payload;
     }
 
     public String MediumTaskToJSON(MediumTask task){
-        String payload="{ \"id\" : \""+task.getID()+"\" , \"type\" : \""+task.getType()+"\", \"number\": \""+task.getNumber()+"\"}";
+        String payload="{ \"id\" : \"" + task.getID() + "\" , \"type\" : \"" + task.getType() +
+                "\", \"consumption\" : " + task.getConsumption() + ", \"number\": \""+task.getNumber()+"\"}";
         System.out.println(payload);
         return payload;
     }
 
     public String HeavyTaskToJSON(HeavyTask task){
-        String payload="{ \"id\" : \""+task.getID()+"\" , \"type\" : \""+task.getType()+"\", \"response\" : \"\"}";
+        String payload="{ \"id\" : \"" + task.getID() + "\" , \"type\" : \"" + task.getType() +
+                "\", \"consumption\" : " + task.getConsumption() + ", \"response\" : \"\"}";
         System.out.println(payload);
         return payload;
     }

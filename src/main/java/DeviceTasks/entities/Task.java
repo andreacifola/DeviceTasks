@@ -1,18 +1,17 @@
 package DeviceTasks.entities;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
 public class Task {
 
     //private static final AtomicInteger count = new AtomicInteger(0);
-    private int ID;
+    private Integer ID;
     private Type type;
+    private Integer consumption;
 
-    public int getID() {
+    public Integer getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(Integer ID) {
         this.ID = ID;
     }
 
@@ -22,5 +21,13 @@ public class Task {
 
     public void setType(Type type) {
         this.type = type;
+    }
+
+    public Integer getConsumption() {
+        return consumption;
+    }
+
+    public void setConsumption(Integer consumption) {
+        this.consumption = consumption;
     }
 }

@@ -12,8 +12,9 @@ public class MediumTaskGenerator {
         Task task = new MediumTask();
         int randNum = new RandomNumberGenerator().Generate5Digits();
         ((MediumTask) task).setNumber(randNum);
-        task.setType(Type.MEDIUM);
         task.setID(id);
+        task.setType(Type.MEDIUM);
+        task.setConsumption(new RandomNumberGenerator().generateRandom(8, 20));
         return task;
     }
 }
