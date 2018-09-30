@@ -81,5 +81,4 @@ public class SpawnTask {
             System.out.println("Task n° "+list.get(i).getID() + ", type = "+ list.get(i).getType());
         }
     }
-
 }
