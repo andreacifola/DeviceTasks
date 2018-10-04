@@ -10,6 +10,9 @@ public class LightTaskGenerator {
 
     public LightTask spawnLightTask(int id) {
 
+        String canto = new RandomStringSelector().selectCantoRandom();
+        //System.out.println(canto);
+
         String word = new RandomStringSelector().selectRandomString();
 
         LightTask task = new LightTask(word);
