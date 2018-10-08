@@ -1,7 +1,5 @@
 package DeviceTasks.entities;
 
-import DeviceTasks.utils.Coordinates;
-
 public class Task {
 
     //private static final AtomicInteger count = new AtomicInteger(0);
