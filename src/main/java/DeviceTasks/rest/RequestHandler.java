@@ -12,18 +12,12 @@ import java.net.URL;
 
 public class RequestHandler {
 
-    ObjectMapper mapper = new ObjectMapper();
+    private ObjectMapper mapper = new ObjectMapper();
 
     public int registerTask(String requestUrl,Task task, String payload){
         StringBuffer jsonString = new StringBuffer();
         sendPost(requestUrl,payload,jsonString);
         return Integer.parseInt(jsonString.toString());
-    }
-
-    public LightTask sendLightPostRequest(String requestUrl, String payload) throws IOException {
-        StringBuffer jsonString = new StringBuffer();
-        sendPost(requestUrl, payload, jsonString);
-        return mapper.readValue(jsonString.toString(), LightTask.class);
     }
 
     private void sendPost(String requestUrl, String payload, StringBuffer jsonString) {
@@ -51,24 +45,6 @@ public class RequestHandler {
         }
     }
 
-    public MediumTask sendMediumPostRequest(String requestUrl, String payload) throws IOException {
-        StringBuffer jsonString = new StringBuffer();
-        sendPost(requestUrl, payload, jsonString);
-        return mapper.readValue(jsonString.toString(), MediumTask.class);
-    }
-
-    public HeavyTask sendHeavyPostRequest(String requestUrl, String payload) throws IOException {
-        StringBuffer jsonString = new StringBuffer();
-        sendPost(requestUrl, payload, jsonString);
-        return mapper.readValue(jsonString.toString(), HeavyTask.class);
-    }
-
-    public String sendPostRequest(String requestUrl, String payload) {
-        StringBuffer jsonString = new StringBuffer();
-        sendPost(requestUrl, payload, jsonString);
-        return jsonString.toString();
-    }
-
     public String sendGetRequest(String requestUrl) throws IOException {
         StringBuilder result = new StringBuilder();
         URL url = new URL(requestUrl);
@@ -94,9 +70,4 @@ public class RequestHandler {
         }
         return null;
     }
-
-    public String SendInterruptRequest(int id){
-        return "ciao";
-    }
-
 }
