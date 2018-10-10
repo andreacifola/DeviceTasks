@@ -10,12 +10,12 @@ public class LightTaskGenerator {
 
     public LightTask spawnLightTask(int id) {
 
+        //String word = new RandomStringSelector().selectRandomString();
         String canto = new RandomStringSelector().selectCantoRandom();
-        //System.out.println(canto);
 
-        String word = new RandomStringSelector().selectRandomString();
+        //LightTask task = new LightTask(word);
+        LightTask task = new LightTask(canto);
 
-        LightTask task = new LightTask(word);
         task.setID(id);
         task.setType(Type.LIGHT);
         task.setConsumption(new RandomNumberGenerator().generateRandom(1, 7));

@@ -14,18 +14,6 @@ public class RequestHandler {
 
     ObjectMapper mapper = new ObjectMapper();
 
-    public int registerTask(String requestUrl,Task task, String payload){
-        StringBuffer jsonString = new StringBuffer();
-        sendPost(requestUrl,payload,jsonString);
-        return Integer.parseInt(jsonString.toString());
-    }
-
-    public LightTask sendLightPostRequest(String requestUrl, String payload) throws IOException {
-        StringBuffer jsonString = new StringBuffer();
-        sendPost(requestUrl, payload, jsonString);
-        return mapper.readValue(jsonString.toString(), LightTask.class);
-    }
-
     private void sendPost(String requestUrl, String payload, StringBuffer jsonString) {
         try {
             URL url = new URL(requestUrl);
@@ -49,6 +37,18 @@ public class RequestHandler {
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }
+    }
+
+    public int registerTask(String requestUrl,Task task, String payload){
+        StringBuffer jsonString = new StringBuffer();
+        sendPost(requestUrl,payload,jsonString);
+        return Integer.parseInt(jsonString.toString());
+    }
+
+    public LightTask sendLightPostRequest(String requestUrl, String payload) throws IOException {
+        StringBuffer jsonString = new StringBuffer();
+        sendPost(requestUrl, payload, jsonString);
+        return mapper.readValue(jsonString.toString(), LightTask.class);
     }
 
     public MediumTask sendMediumPostRequest(String requestUrl, String payload) throws IOException {

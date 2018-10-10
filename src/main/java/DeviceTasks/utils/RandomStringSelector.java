@@ -31,6 +31,7 @@ public class RandomStringSelector {
 
         //sceglie un numero random tra 1 e 5
         int randomCanto = random.nextInt(High - Low) + Low;
+
         if (randomCanto == 1)
             canto = divineComedy.getCanto1();
         if (randomCanto == 2)
