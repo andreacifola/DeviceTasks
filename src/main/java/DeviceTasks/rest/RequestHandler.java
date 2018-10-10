@@ -12,7 +12,13 @@ import java.net.URL;
 
 public class RequestHandler {
 
-    ObjectMapper mapper = new ObjectMapper();
+    private ObjectMapper mapper = new ObjectMapper();
+
+    public int registerTask(String requestUrl,Task task, String payload){
+        StringBuffer jsonString = new StringBuffer();
+        sendPost(requestUrl,payload,jsonString);
+        return Integer.parseInt(jsonString.toString());
+    }
 
     private void sendPost(String requestUrl, String payload, StringBuffer jsonString) {
         try {
@@ -94,9 +100,4 @@ public class RequestHandler {
         }
         return null;
     }
-
-    public String SendInterruptRequest(int id){
-        return "ciao";
-    }
-
 }
