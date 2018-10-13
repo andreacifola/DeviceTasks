@@ -2,6 +2,12 @@ package DeviceTasks.utils;
 
 public class DivineComedy {
     //TODO gestire /n e verificare il risultato
+    private String canto1 = "canto1";
+    private String canto2 = "canto2";
+    private String canto3 = "canto3";
+    private String canto4 = "canto4";
+    private String canto5 = "canto5";
+    /*
     private String canto1 = " \n" +
             " \n" +
             "Nel mezzo del cammin di nostra vita \n" +
@@ -185,6 +191,7 @@ public class DivineComedy {
             "e color cui tu fai cotanto mesti». \n" +
             " \n" +
             "Allor si mosse, e io li tenni dietro.";
+
 
     private String canto2 = " \n" +
             " \n" +
@@ -957,6 +964,7 @@ public class DivineComedy {
             "io venni men così com' io morisse. \n" +
             " \n" +
             "E caddi come corpo morto cade.";
+            */
 
 
     public String getCanto1(){ return canto1; }

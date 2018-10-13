@@ -68,12 +68,10 @@ public class SpawnTask {
                     System.out.println("Risposta dal server : "+result2.getID()+" response : "+result2.getResponse());
                     break;
             }
-
             taskList.add(newTask);
             ++id;
             Thread.sleep(randomNumberGenerator.generateRandom(1000,5000));
         }
-
     }
 
     private static void printTaskList(ArrayList<Task> list){

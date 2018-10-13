@@ -4,6 +4,7 @@ public class LightTask extends Task {
 
     private String toEncrypt;
     private String encrypted;
+    private Integer loopCount = -1;
 
     public LightTask(){}
 
@@ -26,4 +27,8 @@ public class LightTask extends Task {
     public void setEncrypted(String encrypted) {
         this.encrypted = encrypted;
     }
+
+    public Integer getLoopCount() { return loopCount; }
+
+    public void setLoopCount(Integer loopCount) { this.loopCount = loopCount; }
 }

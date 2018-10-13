@@ -3,9 +3,10 @@ package DeviceTasks.entities;
 import java.math.BigInteger;
 
 public class HeavyTask extends Task{
-
-    //l'heavy task consiste nel calcolo dei fattoriali di numeri
-    //in particolare il task diventa heavy per numero molto grandi: es. per n=300000 il tempo impiegato è di ca. 1 min
+    /*
+    * l'heavy task consiste nel calcolo dei fattoriali di numeri. In particolare il task diventa heavy per
+    * numero molto grandi: es. per n=300000 il tempo impiegato è di ca. 1 min
+    */
 
     private int n;
     private BigInteger partial;

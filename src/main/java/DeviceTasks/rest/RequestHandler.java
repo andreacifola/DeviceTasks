@@ -45,12 +45,6 @@ public class RequestHandler {
         }
     }
 
-    public int registerTask(String requestUrl,Task task, String payload){
-        StringBuffer jsonString = new StringBuffer();
-        sendPost(requestUrl,payload,jsonString);
-        return Integer.parseInt(jsonString.toString());
-    }
-
     public LightTask sendLightPostRequest(String requestUrl, String payload) throws IOException {
         StringBuffer jsonString = new StringBuffer();
         sendPost(requestUrl, payload, jsonString);
@@ -89,7 +83,7 @@ public class RequestHandler {
         return result.toString();
     }
 
-    public Task mapJSONToTask(String jsonstring,Type type) throws IOException {
+    public Task mapJSONToTask(String jsonstring, Type type) throws IOException {
         switch (type){
             case LIGHT:
                 return mapper.readValue(jsonstring,LightTask.class);

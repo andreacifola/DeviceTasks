@@ -4,7 +4,7 @@ public class MediumTask extends Task {
 
     private int number;
     private long time;
-    private Integer state;
+    private Integer state = -1;
     private Long currentTime;
 
     public int getNumber() {
