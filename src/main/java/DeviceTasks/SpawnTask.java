@@ -3,6 +3,7 @@ package DeviceTasks;
 
 import DeviceTasks.entities.*;
 import DeviceTasks.generator.TaskGenerator;
+import DeviceTasks.handler.DeviceHandler;
 import DeviceTasks.rest.RequestHandler;
 import DeviceTasks.utils.JsonBuilder;
 import DeviceTasks.utils.RandomNumberGenerator;
@@ -29,12 +30,21 @@ public class SpawnTask {
         System.out.println("Spawning Tasks...");
 
         while (true){
+
+            //controlla lo stato attuale della batteria e verifica se operare in power saving mode
+            //Boolean powerSaving = DeviceHandler.getInstance().checkPowerSaving();
             int randNum = randomNumberGenerator.generateRandom(MIN_RAND,MAX_RAND);
             Task newTask = taskGenerator.generateTask(randNum,id);
+
+            //TEST
+            randNum = 0;
+
             switch (randNum){
                 case 0:
                     LightTask lightTask = (LightTask) newTask;
                     payload = jsonBuilder.LightTaskToJSON(lightTask);
+                    //if power saving mode decide if using middleware or local computation
+
                     requestUrl="http://localhost:8080/light/register";
                     int i = requestHandler.registerTask(requestUrl,lightTask,payload);
                     System.out.println("Valore di ritorno : "+i);
