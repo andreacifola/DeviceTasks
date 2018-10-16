@@ -30,6 +30,10 @@ public class SpawnTask {
 
         while (true){
             int randNum = randomNumberGenerator.generateRandom(MIN_RAND,MAX_RAND);
+
+            //IMPONGO LIGHT TASK
+            //randNum = 0;
+
             Task newTask = taskGenerator.generateTask(randNum,id);
             switch (randNum){
                 case 0:
@@ -65,7 +69,8 @@ public class SpawnTask {
                     requestUrl="http://localhost:8080/heavy/"+k;
                     res = requestHandler.sendGetRequest(requestUrl);
                     HeavyTask result2 = (HeavyTask) requestHandler.mapJSONToTask(res,Type.HEAVY);
-                    System.out.println("Risposta dal server : "+result2.getID()+" response : "+result2.getResponse());
+                    System.out.println("Risposta dal server : " + result2.getID() + " response : " +
+                            result2.getResponse());
                     break;
             }
             taskList.add(newTask);

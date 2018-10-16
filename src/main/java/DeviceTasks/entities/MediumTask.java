@@ -2,10 +2,10 @@ package DeviceTasks.entities;
 
 public class MediumTask extends Task {
 
-    private int number;
-    private long time;
-    private Integer state = -1;
-    private Long currentTime;
+    private int number; //numero da trovare
+    private long time = 0;  //tempo totale impiegato
+    private Integer state = -1; //ci dice a che punto del ciclo siamo, cioè a quale "i" sono arrivato
+    private Long currentTime;   //tempo parziale speso per l'esecuzione
 
     public int getNumber() {
         return number;

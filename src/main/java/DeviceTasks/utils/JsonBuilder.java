@@ -24,7 +24,8 @@ public class JsonBuilder {
                 task.getState() + "}";
         */
         String payload="{ \"id\" : \"" + task.getID() + "\" ,\"state\" : \"" + task.getState() + "\", " +
-                "\"type\" : \"" + task.getType() + "\", \"currentTime\" : \"" + task.getCurrentTime() + "\"," +
+                "\"type\" : \"" + task.getType() + "\", \"time\" : \"" + task.getTime() + "\", " +
+                " \"currentTime\" : \"" + task.getCurrentTime() + "\"," +
                 "\"number\": \"" + task.getNumber() + "\", \"consumption\" : \"" + task.getConsumption() + "\"," +
                 "\"latitude\" : \"" + task.getLatitude() + "\", \"longitude\" : \"" + task.getLongitude() + "\"," +
                 "\"state\" : \"" + task.getState() + "\"}";
@@ -35,8 +36,9 @@ public class JsonBuilder {
     public String HeavyTaskToJSON(HeavyTask task){
         String payload="{ \"id\" : \"" + task.getID() + "\" , \"type\" : \"" + task.getType() + "\" ,"+
                 " \"n\" : \""+ task.getN()+"\", \"partial\" : \""+task.getPartial()+"\", \"last\" : \""+task.getLast()+
-                "\", \"consumption\" : " + task.getConsumption() + ", \"response\" : \"\"" +
-                ", \"latitude\" : \"" + task.getLatitude() + "\", \"longitude\" : \"" + task.getLongitude() + "\"}";
+                "\", \"consumption\" : \"" + task.getConsumption() + "\", \"response\" : \"" + task.getResponse() + "\", " +
+                "" +
+                "\"latitude\" : \"" + task.getLatitude() + "\", \"longitude\" : \"" + task.getLongitude() + "\"}";
         System.out.println(payload);
         return payload;
     }
