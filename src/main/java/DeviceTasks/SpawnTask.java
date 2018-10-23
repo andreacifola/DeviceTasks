@@ -1,6 +1,5 @@
 package DeviceTasks;
 
-
 import DeviceTasks.entities.*;
 import DeviceTasks.generator.TaskGenerator;
 import DeviceTasks.rest.RequestHandler;
@@ -8,7 +7,6 @@ import DeviceTasks.utils.JsonBuilder;
 import DeviceTasks.utils.RandomNumberGenerator;
 
 import java.util.ArrayList;
-
 
 public class SpawnTask {
 
@@ -31,8 +29,8 @@ public class SpawnTask {
         while (true){
             int randNum = randomNumberGenerator.generateRandom(MIN_RAND,MAX_RAND);
 
-            //IMPONGO LIGHT TASK
-            //randNum = 0;
+            //Impongo un task specifico
+            randNum = 1;
 
             Task newTask = taskGenerator.generateTask(randNum,id);
             switch (randNum){
@@ -41,7 +39,7 @@ public class SpawnTask {
                     payload = jsonBuilder.LightTaskToJSON(lightTask);
                     requestUrl="http://localhost:8080/light/register";
                     int i = requestHandler.registerTask(requestUrl,lightTask,payload);
-                    System.out.println("Valore di ritorno : "+i);
+                    //System.out.println("Valore di ritorno : "+i);
                     requestUrl="http://localhost:8080/light/"+i;
                     res = requestHandler.sendGetRequest(requestUrl);
                     LightTask result = (LightTask) requestHandler.mapJSONToTask(res,Type.LIGHT);
@@ -53,7 +51,7 @@ public class SpawnTask {
                     payload = jsonBuilder.MediumTaskToJSON(mediumTask);
                     requestUrl="http://localhost:8080/medium/register";
                     int j = requestHandler.registerTask(requestUrl,mediumTask,payload);
-                    System.out.println("Valore di ritorno : "+j);
+                    //System.out.println("Valore di ritorno : "+j);
                     requestUrl="http://localhost:8080/medium/"+j;
                     res = requestHandler.sendGetRequest(requestUrl);
                     MediumTask result1 = (MediumTask) requestHandler.mapJSONToTask(res,Type.MEDIUM);
@@ -65,7 +63,7 @@ public class SpawnTask {
                     payload = jsonBuilder.HeavyTaskToJSON(heavyTask);
                     requestUrl="http://localhost:8080/heavy/register";
                     int k = requestHandler.registerTask(requestUrl,heavyTask,payload);
-                    System.out.println("Valore di ritorno : "+k);
+                    //System.out.println("Valore di ritorno : "+k);
                     requestUrl="http://localhost:8080/heavy/"+k;
                     res = requestHandler.sendGetRequest(requestUrl);
                     HeavyTask result2 = (HeavyTask) requestHandler.mapJSONToTask(res,Type.HEAVY);
