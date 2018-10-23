@@ -9,7 +9,7 @@ public class HeavyTask extends Task{
     */
 
     private int n;
-    private BigInteger partial=BigInteger.valueOf(1);
+    private BigInteger partial = BigInteger.valueOf(1);
     private BigInteger response;
     private int last = 0;
 

@@ -4,9 +4,13 @@ import DeviceTasks.entities.*;
 import DeviceTasks.generator.TaskGenerator;
 import DeviceTasks.handler.DeviceHandler;
 import DeviceTasks.rest.RequestHandler;
+import DeviceTasks.solver.HeavyTaskSolver;
+import DeviceTasks.solver.LightTaskSolver;
+import DeviceTasks.solver.MediumTaskSolver;
 import DeviceTasks.utils.JsonBuilder;
 import DeviceTasks.utils.RandomNumberGenerator;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 
 public class SpawnTask {
@@ -35,9 +39,9 @@ public class SpawnTask {
 
             //TODO da cancellare
             //Impongo un task specifico
-            randNum = 0;
+            //randNum = 2;
 
-            Task newTask = taskGenerator.generateTask(randNum,id);
+            Task newTask = taskGenerator.generateTask(randNum, id);
 
             switch (randNum){
                 case 0:
@@ -55,7 +59,6 @@ public class SpawnTask {
                     canto = canto.replace("aa", "\n");
                     result.setEncrypted(canto);
                     System.out.println("Risposta dal server : "+result.getID()+" encrypted : "+result.getEncrypted());
-
                     break;
 
                 case 1:
@@ -64,11 +67,13 @@ public class SpawnTask {
                     requestUrl="http://localhost:8080/medium/register";
                     int j = requestHandler.registerTask(requestUrl,mediumTask,payload);
                     //System.out.println("Valore di ritorno : "+j);
+
                     requestUrl="http://localhost:8080/medium/"+j;
                     res = requestHandler.sendGetRequest(requestUrl);
                     MediumTask result1 = (MediumTask) requestHandler.mapJSONToTask(res,Type.MEDIUM);
                     System.out.println("Risposta dal server : "+result1.getID()+" time : "+result1.getTime());
                     break;
+
 
                 case 2:
                     HeavyTask heavyTask = (HeavyTask) newTask;
@@ -76,11 +81,12 @@ public class SpawnTask {
                     requestUrl="http://localhost:8080/heavy/register";
                     int k = requestHandler.registerTask(requestUrl,heavyTask,payload);
                     //System.out.println("Valore di ritorno : "+k);
+
                     requestUrl="http://localhost:8080/heavy/"+k;
                     res = requestHandler.sendGetRequest(requestUrl);
                     HeavyTask result2 = (HeavyTask) requestHandler.mapJSONToTask(res,Type.HEAVY);
-                    System.out.println("Risposta dal server : " + result2.getID() + " response : " +
-                            result2.getResponse());
+                    System.out.println("Risposta dal server : " + result2.getID() + " response : "
+                            + result2.getResponse());
                     break;
             }
             taskList.add(newTask);

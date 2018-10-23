@@ -7,16 +7,30 @@ import java.io.IOException;
 public class LightTaskSolver {
 
     public String CaesarCode(LightTask lightTask) throws IOException {
-        String encrypted = "";
         String toEncrypt = lightTask.getToEncrypt();
-        for (int i = 0; i < toEncrypt.length(); i++) {
+        String encrypted;
+        int loopCount = lightTask.getLoopCount();
+
+        if(loopCount == -1)
+            encrypted = "";
+        else
+            encrypted = lightTask.getEncrypted();
+
+        for (int i = loopCount+1; i < toEncrypt.length(); i++) {
             char letter = toEncrypt.charAt(i);
+
             if (Character.isLetter(letter)) {
-                letter += 3;
+                if(letter == 'x')
+                    letter = 'a';
+                else if(letter == 'y')
+                    letter = 'b';
+                else if(letter == 'z')
+                    letter = 'c';
+                else
+                    letter += 3;
                 encrypted += letter;
             }
         }
         return encrypted;
     }
-
 }
