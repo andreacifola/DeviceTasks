@@ -1,13 +1,7 @@
 package DeviceTasks.utils;
 
 public class DivineComedy {
-    //TODO gestire /n e verificare il risultato
-    private String canto1 = "canto1";
-    private String canto2 = "canto2";
-    private String canto3 = "canto3";
-    private String canto4 = "canto4";
-    private String canto5 = "canto5";
-    /*
+
     private String canto1 = " \n" +
             " \n" +
             "Nel mezzo del cammin di nostra vita \n" +
@@ -211,7 +205,7 @@ public class DivineComedy {
             "guarda la mia virtù s'ell' è possente, \n" +
             "prima ch'a l'alto passo tu mi fidi. \n" +
             " \n" +
-            "Tu dici che di Silvïo il parente, \n" +
+            "Tu dici che di Silvio il parente, \n" +
             "corruttibile ancora, ad immortale \n" +
             "secolo andò, e fu sensibilmente. \n" +
             " \n" +
@@ -231,12 +225,12 @@ public class DivineComedy {
             "intese cose che furon cagione \n" +
             "di sua vittoria e del papale ammanto. \n" +
             " \n" +
-            "Andovvi poi lo Vas d'elezïone, \n" +
+            "Andovvi poi lo Vas d'elezione, \n" +
             "per recarne conforto a quella fede \n" +
             "ch'è principio a la via di salvazione. \n" +
             " \n" +
             "Ma io, perché venirvi? o chi 'l concede? \n" +
-            "Io non Enëa, io non Paulo sono; \n" +
+            "Io non Enea, io non Paulo sono; \n" +
             "me degno a ciò né io né altri 'l crede. \n" +
             " \n" +
             "Per che, se del venire io m'abbandono, \n" +
@@ -247,7 +241,7 @@ public class DivineComedy {
             "e per novi pensier cangia proposta, \n" +
             "sì che dal cominciar tutto si tolle, \n" +
             " \n" +
-            "tal mi fec' ïo 'n quella oscura costa, \n" +
+            "tal mi fec' io 'n quella oscura costa, \n" +
             "perché, pensando, consumai la 'mpresa \n" +
             "che fu nel cominciar cotanto tosta. \n" +
             " \n" +
@@ -271,7 +265,7 @@ public class DivineComedy {
             "e cominciommi a dir soave e piana, \n" +
             "con angelica voce, in sua favella: \n" +
             " \n" +
-            "\"O anima cortese mantoana, \n" +
+            "O anima cortese mantoana, \n" +
             "di cui la fama ancor nel mondo dura, \n" +
             "e durerà quanto 'l mondo lontana, \n" +
             " \n" +
@@ -292,10 +286,10 @@ public class DivineComedy {
             "amor mi mosse, che mi fa parlare. \n" +
             " \n" +
             "Quando sarò dinanzi al segnor mio, \n" +
-            "di te mi loderò sovente a lui\". \n" +
+            "di te mi loderò sovente a lui. \n" +
             "Tacette allora, e poi comincia' io: \n" +
             " \n" +
-            "\"O donna di virtù sola per cui \n" +
+            "O donna di virtù sola per cui \n" +
             "l'umana spezie eccede ogne contento \n" +
             "di quel ciel c'ha minor li cerchi sui, \n" +
             " \n" +
@@ -305,11 +299,11 @@ public class DivineComedy {
             " \n" +
             "Ma dimmi la cagion che non ti guardi \n" +
             "de lo scender qua giuso in questo centro \n" +
-            "de l'ampio loco ove tornar tu ardi\". \n" +
+            "de l'ampio loco ove tornar tu ardi. \n" +
             " \n" +
-            "\"Da che tu vuo' saver cotanto a dentro, \n" +
-            "dirotti brievemente\", mi rispuose, \n" +
-            "\"perch' i' non temo di venir qua entro. \n" +
+            "Da che tu vuo' saver cotanto a dentro, \n" +
+            "dirotti brievemente, mi rispuose, \n" +
+            "perch' i' non temo di venir qua entro. \n" +
             " \n" +
             "Temer si dee di sole quelle cose \n" +
             "c'hanno potenza di fare altrui male; \n" +
@@ -325,19 +319,19 @@ public class DivineComedy {
             " \n" +
             "Questa chiese Lucia in suo dimando \n" +
             "e disse: — Or ha bisogno il tuo fedele \n" +
-            "di te, e io a te lo raccomando —. \n" +
+            "di te, e io a te lo raccomando. \n" +
             " \n" +
             "Lucia, nimica di ciascun crudele, \n" +
             "si mosse, e venne al loco dov' i' era, \n" +
             "che mi sedea con l'antica Rachele. \n" +
             " \n" +
-            "Disse: — Beatrice, loda di Dio vera, \n" +
+            "Disse: Beatrice, loda di Dio vera, \n" +
             "ché non soccorri quei che t'amò tanto, \n" +
             "ch'uscì per te de la volgare schiera? \n" +
             " \n" +
             "Non odi tu la pieta del suo pianto, \n" +
             "non vedi tu la morte che 'l combatte \n" +
-            "su la fiumana ove 'l mar non ha vanto? —. \n" +
+            "su la fiumana ove 'l mar non ha vanto? \n" +
             " \n" +
             "Al mondo non fur mai persone ratte \n" +
             "a far lor pro o a fuggir lor danno, \n" +
@@ -345,7 +339,7 @@ public class DivineComedy {
             " \n" +
             "venni qua giù del mio beato scanno, \n" +
             "fidandomi del tuo parlare onesto, \n" +
-            "ch'onora te e quei ch'udito l'hanno\". \n" +
+            "ch'onora te e quei ch'udito l'hanno. \n" +
             " \n" +
             "Poscia che m'ebbe ragionato questo, \n" +
             "li occhi lucenti lagrimando volse, \n" +
@@ -568,6 +562,7 @@ public class DivineComedy {
             "la qual mi vinse ciascun sentimento; \n" +
             " \n" +
             "e caddi come l'uom cui sonno piglia.";
+
 
     private String canto4 = " \n" +
             " \n" +
@@ -964,7 +959,6 @@ public class DivineComedy {
             "io venni men così com' io morisse. \n" +
             " \n" +
             "E caddi come corpo morto cade.";
-            */
 
 
     public String getCanto1(){ return canto1; }

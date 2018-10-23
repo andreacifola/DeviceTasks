@@ -33,27 +33,29 @@ public class SpawnTask {
             //Boolean powerSaving = DeviceHandler.getInstance().checkPowerSaving();
             int randNum = randomNumberGenerator.generateRandom(MIN_RAND,MAX_RAND);
 
+            //TODO da cancellare
             //Impongo un task specifico
-            randNum = 1;
+            randNum = 0;
 
             Task newTask = taskGenerator.generateTask(randNum,id);
-
-            //TEST
-            randNum = 0;
 
             switch (randNum){
                 case 0:
                     LightTask lightTask = (LightTask) newTask;
                     payload = jsonBuilder.LightTaskToJSON(lightTask);
-                    //if power saving mode decide if using middleware or local computation
-
                     requestUrl="http://localhost:8080/light/register";
                     int i = requestHandler.registerTask(requestUrl,lightTask,payload);
                     //System.out.println("Valore di ritorno : "+i);
+
                     requestUrl="http://localhost:8080/light/"+i;
                     res = requestHandler.sendGetRequest(requestUrl);
                     LightTask result = (LightTask) requestHandler.mapJSONToTask(res,Type.LIGHT);
+
+                    String canto = result.getEncrypted();
+                    canto = canto.replace("aa", "\n");
+                    result.setEncrypted(canto);
                     System.out.println("Risposta dal server : "+result.getID()+" encrypted : "+result.getEncrypted());
+
                     break;
 
                 case 1:

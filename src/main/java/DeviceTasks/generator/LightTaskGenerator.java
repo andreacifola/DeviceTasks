@@ -9,11 +9,12 @@ import DeviceTasks.utils.RandomStringSelector;
 public class LightTaskGenerator {
 
     public LightTask spawnLightTask(int id) {
-
-        //String word = new RandomStringSelector().selectRandomString();
         String canto = new RandomStringSelector().selectCantoRandom();
 
-        //LightTask task = new LightTask(word);
+        //sostituisco "\n" con "xx" prima di trasformare in json
+        canto = canto.replace("\n", "xx");
+        //System.out.println(canto);
+
         LightTask task = new LightTask(canto);
 
         task.setID(id);
