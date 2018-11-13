@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Objects;
 
 public class RequestHandler {
 
@@ -17,7 +18,10 @@ public class RequestHandler {
     public int registerTask(String requestUrl,Task task, String payload){
         StringBuffer jsonString = new StringBuffer();
         sendPost(requestUrl,payload,jsonString);
-        return Integer.parseInt(jsonString.toString());
+        if (!Objects.equals(jsonString.toString(), ""))
+            return Integer.parseInt(jsonString.toString());
+        else
+            return -100;
     }
 
     private void sendPost(String requestUrl, String payload, StringBuffer jsonString) {
@@ -41,7 +45,7 @@ public class RequestHandler {
             br.close();
             connection.disconnect();
         } catch (Exception e) {
-            throw new RuntimeException(e.getMessage());
+            return;
         }
     }
 
