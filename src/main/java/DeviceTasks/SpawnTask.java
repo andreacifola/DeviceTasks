@@ -38,10 +38,6 @@ public class SpawnTask {
             //Boolean powerSaving = DeviceHandler.getInstance().checkPowerSaving();
             int randNum = randomNumberGenerator.generateRandom(MIN_RAND,MAX_RAND);
 
-            //TODO da cancellare
-            //Impongo un task specifico
-            //randNum = 2;
-
             Task newTask = taskGenerator.generateTask(randNum, id);
 
             switch (randNum){
