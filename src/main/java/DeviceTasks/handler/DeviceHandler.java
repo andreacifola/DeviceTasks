@@ -16,19 +16,39 @@ public class DeviceHandler {
         this.device = new DeviceStatus();
     }
 
-    public Boolean checkPowerSaving(){
-        if (device.getPowerSaving())
-            return true;
-        if (device.getBattery() <= 20){
-            //enter power saving
-            return true;
-        }else {
-            return false;
-        }
+    public int getExecutionMode(){
+        return device.getExecutionMode();
     }
 
-    public void setForcedPowerSaving(){
-        device.setPowerSaving(true);
-        System.out.println("Entering Power Saving mode");
+    public double getPowerUsage(){
+        return device.getPower_usage();
+    }
+
+    public double getPowerUsageIdle(){
+        return device.getPower_usage_idle();
+    }
+
+    public double getPowerDownWifi(){
+        return device.getPower_download_wifi();
+    }
+
+    public double getPowerUploadWifi(){
+        return device.getPower_upload_wifi();
+    }
+
+    public double getPowerDownData(){
+        return device.getPower_dowload_mobiledata();
+    }
+
+    public double getPowerUploadData(){
+        return device.getPower_upload_mobiledata();
+    }
+
+    public int getBandwithWifi(){
+        return device.getBandwith_wifi();
+    }
+
+    public int getBandwithMobile(){
+        return device.getBandwith_mobile();
     }
 }
