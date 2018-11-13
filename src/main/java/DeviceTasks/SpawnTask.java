@@ -13,6 +13,7 @@ import DeviceTasks.utils.JsonBuilder;
 import DeviceTasks.utils.RandomNumberGenerator;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class SpawnTask {
 
@@ -85,6 +86,25 @@ public class SpawnTask {
                         ExecutionTimePredictor.getInstance().addLightExecTime(exec_time_seconds);
                         lightTask.setEncrypted(cesar);
                     }
+                    payload = jsonBuilder.LightTaskToJSON(lightTask);
+                    requestUrl="http://localhost:8080/light/register";
+                    int i = requestHandler.registerTask(requestUrl,lightTask,payload);
+                    //System.out.println("Valore di ritorno : "+i);
+
+                    if (i != -100) {
+                        requestUrl = "http://localhost:8080/light/" + i;
+                        res = requestHandler.sendGetRequest(requestUrl);
+                        LightTask result = (LightTask) requestHandler.mapJSONToTask(res, Type.LIGHT);
+
+                        String canto = result.getEncrypted();
+                        canto = canto.replace("aa", "\n");
+                        result.setEncrypted(canto);
+                        System.out.println("Risposta dal server : " + result.getID() + " encrypted : " + result.getEncrypted());
+                        System.out.println("\n------------------------------------------------------------------------------------------------------------------------------------------------");
+                    } else {
+                        System.out.println("\nIL MIDDLEWARE NON È PIÙ DISPONIBILE");
+                        return;
+                    }
                     break;
 
                 case 1:
@@ -124,6 +144,20 @@ public class SpawnTask {
                         double exec_time_seconds = (double)exec_time/ 1_000_000_000.0;
                         ExecutionTimePredictor.getInstance().addMediumExecTime(exec_time_seconds);
                     }
+                    payload = jsonBuilder.MediumTaskToJSON(mediumTask);
+                    requestUrl="http://localhost:8080/medium/register";
+                    int j = requestHandler.registerTask(requestUrl,mediumTask,payload);
+                    //System.out.println("Valore di ritorno : "+j);
+                    if (j != -100) {
+                        requestUrl = "http://localhost:8080/medium/" + j;
+                        res = requestHandler.sendGetRequest(requestUrl);
+                        MediumTask result1 = (MediumTask) requestHandler.mapJSONToTask(res, Type.MEDIUM);
+                        System.out.println("Risposta dal server : " + result1.getID() + " time : " + result1.getTime());
+                        System.out.println("\n------------------------------------------------------------------------------------------------------------------------------------------------");
+                    } else {
+                        System.out.println("\nIL MIDDLEWARE NON È PIÙ DISPONIBILE");
+                        return;
+                    }
                     break;
                 case 2:
                     HeavyTask heavyTask = (HeavyTask) newTask;
@@ -158,6 +192,22 @@ public class SpawnTask {
                         long exec_time = end_time - start_time;
                         double exec_time_seconds = (double)exec_time/ 1_000_000_000.0;
                         ExecutionTimePredictor.getInstance().addHeavyExecTime(exec_time_seconds);
+                    }
+                    payload = jsonBuilder.HeavyTaskToJSON(heavyTask);
+                    requestUrl="http://localhost:8080/heavy/register";
+                    int k = requestHandler.registerTask(requestUrl,heavyTask,payload);
+                    //System.out.println("Valore di ritorno : "+k);
+
+                    if (k != -100) {
+                        requestUrl = "http://localhost:8080/heavy/" + k;
+                        res = requestHandler.sendGetRequest(requestUrl);
+                        HeavyTask result2 = (HeavyTask) requestHandler.mapJSONToTask(res, Type.HEAVY);
+                        System.out.println("Risposta dal server : " + result2.getID() + " response : "
+                                + result2.getResponse());
+                        System.out.println("\n------------------------------------------------------------------------------------------------------------------------------------------------");
+                    } else {
+                        System.out.println("\nIL MIDDLEWARE NON È PIÙ DISPONIBILE");
+                        return;
                     }
                     break;
             }
