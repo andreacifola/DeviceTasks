@@ -16,7 +16,6 @@ public class LightTaskGenerator {
         //System.out.println(canto);
 
         LightTask task = new LightTask(canto);
-
         task.setID(id);
         task.setType(Type.LIGHT);
         task.setConsumption(new RandomNumberGenerator().generateRandom(1, 7));
